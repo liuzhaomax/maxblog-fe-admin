@@ -1,4 +1,4 @@
-# MaxBlog 前端微服务模板
+# MaxBlog 前端管理微服务
 
 [![React](https://img.shields.io/badge/react-18.2.0-blue)](https://github.com/facebook/react)
 [![React-Router](https://img.shields.io/badge/react_router-6.3.0-red)](https://github.com/remix-run/react-router)

@@ -1,6 +1,6 @@
 {
-  "name": "maxblog-fe-template",
-  "version": "1.5.1",
+  "name": "maxblog-fe-admin",
+  "version": "0.5.1",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
