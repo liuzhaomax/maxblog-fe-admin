@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/341.82721bc2.chunk.css","mappings":"AAAA,YACI,iBAAkB,CAClB,UACJ","sources":["layouts/MainLayout.css"],"sourcesContent":[".MainLayout {\n    overflow-y: hidden;\n    width: 100%;\n}\n"],"names":[],"sourceRoot":""}
