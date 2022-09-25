@@ -1,16 +1,19 @@
 import React from "react"
+import {Layout} from "antd"
 import "./MainLayout.css"
-import {Outlet} from "react-router-dom"
-import MainNav from "./MainNav"
-import Footer from "./Footer"
+import Nav from "./Nav"
+import SideMenu from "./SideMenu"
+import { Outlet } from "react-router-dom"
 
 function MainLayout() {
     return (
-        <div className="MainLayout">
-            <MainNav/>
-            <Outlet/>
-            <Footer/>
-        </div>
+        <Layout className="Layout">
+            <Nav defaultSelectedKeys={["1"]}/>
+            <Layout style={{"height": "93.5vh"}}>
+                <SideMenu/>
+                <Outlet/>
+            </Layout>
+        </Layout>
     )
 }
 

@@ -1,6 +1,6 @@
 import React from "react"
 import "./Component.css"
-import { COMPONENT } from "../../config/cstModule"
+import { COMPONENT } from "../../../config/cstModule"
 
 function Component() {
     return (
