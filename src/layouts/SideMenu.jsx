@@ -3,7 +3,7 @@ import {LaptopOutlined, AreaChartOutlined} from "@ant-design/icons"
 import {Layout, Menu} from "antd"
 import "./SideMenu.css"
 import { useNavigate } from "react-router-dom"
-import { COMPONENT, HOME } from "../config/cstModule"
+import { ARTICLE, HOME } from "../config/cstModule"
 
 const { SubMenu } = Menu
 const { Sider } = Layout
@@ -16,8 +16,8 @@ function SideMenu() {
         case HOME.KEY:
             navigate(HOME.FULL_PATH)
             break
-        case COMPONENT.FUNCTIONS[0].KEY:
-            navigate(COMPONENT.FUNCTIONS[0].FULL_PATH)
+        case ARTICLE.FUNCTIONS[0].KEY:
+            navigate(ARTICLE.FUNCTIONS[0].FULL_PATH)
             break
         default:
             console.log("无效 Menu.Item key.")
@@ -33,8 +33,8 @@ function SideMenu() {
                 style={{ height: "100%", borderRight: 0 }}
             >
                 <Menu.Item key={ HOME.KEY } onClick={ jump }>{ HOME.NAME }</Menu.Item>
-                <SubMenu key={ COMPONENT.KEY } icon={<LaptopOutlined />} title={ COMPONENT.NAME }>
-                    <Menu.Item key={ COMPONENT.FUNCTIONS[0].KEY } onClick={ jump }>{COMPONENT.FUNCTIONS[0].NAME}</Menu.Item>
+                <SubMenu key={ ARTICLE.KEY } icon={<LaptopOutlined />} title={ ARTICLE.NAME }>
+                    <Menu.Item key={ ARTICLE.FUNCTIONS[0].KEY } onClick={ jump }>{ARTICLE.FUNCTIONS[0].NAME}</Menu.Item>
                 </SubMenu>
                 <SubMenu key="sub2" icon={<AreaChartOutlined />} title="假模块">
                     <Menu.Item key="3">假功能1</Menu.Item>

@@ -17,10 +17,10 @@ function Nav(props) {
             .then(() => {
                 setAuthToken("")
                 localStorage.removeItem("TOKEN")
-                message.success("Logout Succeeded.")
+                message.success("登出成功")
             })
             .catch(err => {
-                message.success("Logout Failed.")
+                message.error("登出失败")
                 console.log(err)
             })
     }
@@ -39,7 +39,7 @@ function Nav(props) {
             <div className="profile">
                 <UserOutlined className="profile-icon"/>
             </div>
-            <div className="logout" onClick={logout}>Logout</div>
+            <div className="logout" onClick={logout}>登出</div>
         </Header>
     )
 }

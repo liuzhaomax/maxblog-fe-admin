@@ -17,7 +17,7 @@ function Login() {
         } else {
             getPuk()
                 .then(res => {
-                    window.sessionStorage.setItem("puk", res.data.puk)
+                    window.sessionStorage.setItem("puk", res.data.data)
                 })
                 .catch(err => {
                     console.log(err)

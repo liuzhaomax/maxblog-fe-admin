@@ -9,7 +9,7 @@ function MainLayout() {
     return (
         <Layout className="Layout">
             <Nav defaultSelectedKeys={["1"]}/>
-            <Layout style={{"height": "93.5vh"}}>
+            <Layout style={{"height": "93vh"}}>
                 <SideMenu/>
                 <Outlet/>
             </Layout>

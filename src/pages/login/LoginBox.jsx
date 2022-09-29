@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import "./Login.css"
 import {Button, Input, message, notification} from "antd"
 import {EyeInvisibleOutlined, EyeTwoTone, FrownOutlined} from "@ant-design/icons"
-import md5 from "md5"
 import JsEncrypt from "jsencrypt"
 import setAuthToken from "../../utils/setAuthToken"
 import { useNavigate } from "react-router-dom"
@@ -14,16 +13,16 @@ import { setToken } from "../../state/reducers/auth"
 function LoginBox() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [userName, setUserName] = useState("")
-    const [userPassword, setUserPassword] = useState("")
+    const [mobile, setMobile] = useState("")
+    const [password, setPassword] = useState("")
     const [isLoading, setIsLoading] = useState(false)
 
     const encrypt = () => {
         let rsa = new JsEncrypt()
         rsa.setPublicKey(sessionStorage.getItem("puk"))
         return {
-            "userName": rsa.encrypt(userName),
-            "userPassword": rsa.encrypt(md5(userPassword))
+            "mobile": rsa.encrypt(mobile),
+            "password": rsa.encrypt(password)
         }
     }
 
@@ -32,9 +31,9 @@ function LoginBox() {
         postLogin(encrypt())
             .then(res => {
                 setIsLoading(false)
-                dispatch(setToken(res.data))
-                setAuthToken(res.data)
-                localStorage.setItem("TOKEN", res.data)
+                dispatch(setToken(res.data.data))
+                setAuthToken(res.data.data)
+                localStorage.setItem("TOKEN", res.data.data)
                 message.success("登录成功")
                 navigate(HOME.FULL_PATH)
             })
@@ -49,12 +48,12 @@ function LoginBox() {
             })
     }
 
-    const onUserNameChange = e => {
-        setUserName(e.target.value)
+    const onMobileChange = e => {
+        setMobile(e.target.value)
     }
 
-    const onUserPasswordChange = e => {
-        setUserPassword(e.target.value)
+    const onPasswordChange = e => {
+        setPassword(e.target.value)
     }
 
     const cancelBubble = e => {
@@ -70,20 +69,20 @@ function LoginBox() {
                 </div>
                 <Input
                     id="login-user-name"
-                    name="userName"
+                    name="mobile"
                     placeholder="请输入用户名"
-                    value={ userName }
+                    value={ mobile }
                     onPressEnter={ submit }
-                    onChange={ onUserNameChange }
+                    onChange={ onMobileChange }
                 />
                 <Input.Password
                     id="login-user-password"
-                    name="userPassword"
+                    name="password"
                     placeholder="请输入密码"
                     iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                    value={ userPassword }
+                    value={ password }
                     onPressEnter={ submit }
-                    onChange={ onUserPasswordChange }
+                    onChange={ onPasswordChange }
                 />
                 <Button id="btn-login" type="primary" onClick={ submit } loading={ isLoading }>登录</Button>
             </div>
