@@ -1,7 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-// import { useDispatch, useSelector } from "react-redux"
-// const auth = useSelector(state => state.auth)
-// const dispatch = useDispatch()
 
 const initialState = {
     isAuthenticated: false,
@@ -24,3 +21,7 @@ export const auth = createSlice({
 export const { toggleAuth, setToken } = auth.actions
 
 export default auth.reducer
+
+// import { useDispatch, useSelector } from "react-redux"
+// const auth = useSelector(state => state.auth)
+// const dispatch = useDispatch()

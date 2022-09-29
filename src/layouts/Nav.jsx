@@ -5,7 +5,7 @@ import "./Nav.css"
 import setAuthToken from "../utils/setAuthToken"
 import { useNavigate } from "react-router-dom"
 import { deleteLogout } from "../utils/handlers"
-import { HOME, MAXBLOG } from "../config/cstModule"
+import { HOME, LOGIN, MAXBLOG } from "../config/cstModule"
 
 const { Header } = Layout
 
@@ -18,6 +18,7 @@ function Nav(props) {
                 setAuthToken("")
                 localStorage.removeItem("TOKEN")
                 message.success("登出成功")
+                navigate(LOGIN.FULL_PATH)
             })
             .catch(err => {
                 message.error("登出失败")
