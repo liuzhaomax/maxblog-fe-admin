@@ -22,6 +22,6 @@ export const MENU_ITEMS_WITH_SUB = [
         label: "",
         key: "submenu",
         icon: <MenuOutlined className="submenu-icon" />,
-        children: MENU_ITEMS_WITHOUT_SUB
+        items: MENU_ITEMS_WITHOUT_SUB
     },
 ]
