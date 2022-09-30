@@ -1,6 +1,6 @@
 import React from "react"
 import "./SideMenu.css"
-import { Menu, Layout } from "antd"
+import { Layout, Menu } from "antd"
 import { AreaChartOutlined, FileTextOutlined, HomeOutlined } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom"
 import { ARTICLE, HOME, MAXBLOG } from "../config/cstModule"
