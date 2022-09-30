@@ -1,5 +1,5 @@
 import React from "react"
-import {LaptopOutlined, AreaChartOutlined} from "@ant-design/icons"
+import { AreaChartOutlined, FileTextOutlined, HomeOutlined } from "@ant-design/icons"
 import {Layout, Menu} from "antd"
 import "./SideMenu.css"
 import { useNavigate } from "react-router-dom"
@@ -60,8 +60,8 @@ function SideMenu(props) {
                 defaultOpenKeys={getOpenKey(MAXBLOG.MODULE_MAXBLOG)}
                 style={{ height: "100%", borderRight: 0 }}
             >
-                <Menu.Item key={ HOME.KEY } onClick={ jump }>{ HOME.NAME }</Menu.Item>
-                <SubMenu key={ ARTICLE.KEY } icon={<LaptopOutlined />} title={ ARTICLE.NAME }>
+                <Menu.Item key={ HOME.KEY } icon={<HomeOutlined />} onClick={ jump }>{ HOME.NAME }</Menu.Item>
+                <SubMenu key={ ARTICLE.KEY } icon={<FileTextOutlined />} title={ ARTICLE.NAME }>
                     <Menu.Item key={ ARTICLE.FUNCTIONS.ARTICLE_LIST.KEY } onClick={ jump }>{ARTICLE.FUNCTIONS.ARTICLE_LIST.NAME}</Menu.Item>
                 </SubMenu>
                 <SubMenu key="sub2" icon={<AreaChartOutlined />} title="假模块">
