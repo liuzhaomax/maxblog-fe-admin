@@ -32,7 +32,7 @@ function Home() {
                 navigate(LOGIN.FULL_PATH)
             })
     }, [])
-    
+
     return (
         <div id={HOME.KEY} className={HOME.KEY}>
             I am Home {data ? data.msg : "loading"}

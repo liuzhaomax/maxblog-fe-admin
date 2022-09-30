@@ -5,13 +5,13 @@ import "./Nav.css"
 import setAuthToken from "../utils/setAuthToken"
 import { useNavigate } from "react-router-dom"
 import { deleteLogout } from "../utils/handlers"
-import { HOME, LOGIN, MAXBLOG } from "../config/cstModule"
+import { LOGIN, MAXBLOG } from "../config/cstModule"
 import { useDispatch } from "react-redux"
 import { setToken, toggleAuth } from "../state/reducers/auth"
 
 const { Header } = Layout
 
-function Nav(props) {
+function Nav() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -35,14 +35,10 @@ function Nav(props) {
             })
     }
 
-    const jumpToHome = () => {
-        navigate(HOME.FULL_PATH)
-    }
-
     return (
         <Header className="header">
-            <div className="logo" onClick={jumpToHome}/>
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={props.defaultSelectedKeys}>
+            <div className="logo"/>
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={MAXBLOG.KEY}>
                 <Menu.Item className="nav" key={ MAXBLOG.KEY }>{ MAXBLOG.NAME }</Menu.Item>
                 {/*<Menu.Item className="nav" key="2">Website 2</Menu.Item>*/}
             </Menu>

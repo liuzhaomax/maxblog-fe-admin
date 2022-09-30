@@ -19,15 +19,15 @@ export const ARTICLE = {
     KEY: "ARTICLE",
     PATH: "article",
     FULL_PATH: "/maxblog/article",
-    FUNCTIONS: [
-        {
-            NAME: "文章-功能1",
-            KEY: "ARTICLE_FUNC1",
-            PATH: "func1",
-            FULL_PATH: "/maxblog/article/func1",
+    FUNCTIONS: {
+        ARTICLE_LIST: {
+            NAME: "文章列表",
+            KEY: "ARTICLE_LIST",
+            PATH: "articleList",
+            FULL_PATH: "/maxblog/article/articleList",
             FILE_PATH: "pages/maxblog/article/Article",
         },
-    ],
+    },
 }
 
 export const MODULE_MAXBLOG = {
