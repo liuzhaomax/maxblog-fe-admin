@@ -5,8 +5,8 @@ import {Layout, Menu} from "antd"
 import { useNavigate } from "react-router-dom"
 import { ARTICLE, HOME, MAXBLOG } from "../config/cstModule"
 
-const { SubMenu } = Menu
 const { Sider } = Layout
+const { SubMenu } = Menu
 
 function SideMenu(props) {
     const navigate = useNavigate()
