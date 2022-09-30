@@ -502,9 +502,6 @@ module.exports = function (webpackEnv) {
                 modules: {
                   mode: 'icss',
                 },
-                // la added for mini-css-extract-plugin Conflicting order
-                hmr: process.env.NODE_ENV === 'development',
-                reloadAll: true,
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./CenterContent.css"
 import { Outlet, useOutletContext } from "react-router-dom"
-import {Breadcrumb, Layout} from "antd"
+import { Layout, Breadcrumb } from "antd"
 import { MAXBLOG } from "../config/cstModule"
 
 const { Content } = Layout
