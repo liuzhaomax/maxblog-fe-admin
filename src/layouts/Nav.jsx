@@ -6,23 +6,32 @@ import setAuthToken from "../utils/setAuthToken"
 import { useNavigate } from "react-router-dom"
 import { deleteLogout } from "../utils/handlers"
 import { HOME, LOGIN, MAXBLOG } from "../config/cstModule"
+import { useDispatch } from "react-redux"
+import { setToken, toggleAuth } from "../state/reducers/auth"
 
 const { Header } = Layout
 
 function Nav(props) {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const logout = () => {
         deleteLogout()
             .then(() => {
-                setAuthToken("")
+                dispatch(toggleAuth())
+                dispatch(setToken(""))
+                setAuthToken()
                 localStorage.removeItem("TOKEN")
                 message.success("登出成功")
                 navigate(LOGIN.FULL_PATH)
             })
-            .catch(err => {
+            .catch(() => {
+                dispatch(toggleAuth())
+                dispatch(setToken(""))
+                setAuthToken()
+                localStorage.removeItem("TOKEN")
                 message.error("登出失败")
-                console.log(err)
+                navigate(LOGIN.FULL_PATH)
             })
     }
 

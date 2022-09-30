@@ -38,6 +38,6 @@ export const MODULE_MAXBLOG = {
 export const MAXBLOG = {
     NAME: "MaxBlog",
     KEY: "MAXBLOG",
-    PATH: "/maxblog",
+    PATH: "maxblog",
     MODULE_MAXBLOG,
 }

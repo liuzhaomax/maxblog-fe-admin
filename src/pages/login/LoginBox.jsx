@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 import { HOME } from "../../config/cstModule"
 import { postLogin } from "./handlers"
 import { useDispatch } from "react-redux"
-import { setToken } from "../../state/reducers/auth"
+import { setToken, toggleAuth } from "../../state/reducers/auth"
 
 function LoginBox() {
     const navigate = useNavigate()
@@ -31,6 +31,7 @@ function LoginBox() {
         postLogin(encrypt())
             .then(res => {
                 setIsLoading(false)
+                dispatch(toggleAuth())
                 dispatch(setToken(res.data.data))
                 setAuthToken(res.data.data)
                 localStorage.setItem("TOKEN", res.data.data)

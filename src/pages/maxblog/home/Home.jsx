@@ -5,7 +5,7 @@ import { getPageData } from "../../../utils/handlers"
 import { notification } from "antd"
 import { FrownOutlined } from "@ant-design/icons"
 import setAuthToken from "../../../utils/setAuthToken"
-import { setToken } from "../../../state/reducers/auth"
+import { setToken, toggleAuth } from "../../../state/reducers/auth"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
@@ -20,8 +20,9 @@ function Home() {
                 setData(res.data.data)
             })
             .catch(() => {
+                dispatch(toggleAuth())
                 dispatch(setToken(""))
-                setAuthToken("")
+                setAuthToken()
                 localStorage.removeItem("TOKEN")
                 notification.open({
                     message: "需要登录",
