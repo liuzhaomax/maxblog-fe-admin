@@ -8,10 +8,11 @@ import { ARTICLE, HOME, MAXBLOG } from "../config/cstModule"
 const { SubMenu } = Menu
 const { Sider } = Layout
 
-function SideMenu() {
+function SideMenu(props) {
     const navigate = useNavigate()
 
     const jump = e => {
+        props.setCurrent(e.key)
         switch (e.key) {
         case HOME.KEY:
             navigate(HOME.FULL_PATH)
@@ -67,7 +68,6 @@ function SideMenu() {
                     <Menu.Item key="3">假功能1</Menu.Item>
                     <Menu.Item key="4">假功能2</Menu.Item>
                 </SubMenu>
-                
             </Menu>
         </Sider>
     )

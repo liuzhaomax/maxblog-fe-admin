@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom"
 import Index from "../pages/index/Index"
 import NotFound from "../pages/notFound/NotFound"
 import Home from "../pages/maxblog/home/Home"
-import { HOME, ARTICLE, LOGIN } from "../config/cstModule"
+import { HOME, ARTICLE, LOGIN, MAXBLOG } from "../config/cstModule"
 import { CENTER_CONTENT, MAIN_LAYOUT } from "../config/cstLayout"
 import Login from "../pages/login/Login"
-import MaxBlog from "../pages/maxblog/MaxBlog"
+import MaxBlog from "../pages/maxblog/index/MaxBlog"
 
 const lazyLoad = path => {
     const Comp = React.lazy(() => import(`../${path}`))
@@ -21,7 +21,7 @@ export default (
     <Routes>
         <Route path="/" element={<Index/>}/>
         <Route path={LOGIN.PATH} element={<Login/>}/>
-        <Route path="/maxblog" element={<MaxBlog/>}/>
+        <Route path={MAXBLOG.PATH} element={<MaxBlog/>}/>
         <Route element={lazyLoad(MAIN_LAYOUT.FILE_PATH)}>
             <Route element={lazyLoad(CENTER_CONTENT.FILE_PATH)}>
                 <Route path={HOME.FULL_PATH} element={<Home/>}/>

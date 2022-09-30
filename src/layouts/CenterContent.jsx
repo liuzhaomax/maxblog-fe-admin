@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./CenterContent.css"
-import { Outlet } from "react-router-dom"
+import { Outlet, useOutletContext } from "react-router-dom"
 import {Breadcrumb, Layout} from "antd"
 import { MAXBLOG } from "../config/cstModule"
 
@@ -8,10 +8,11 @@ const { Content } = Layout
 
 function CenterContent() {
     const [breadcrumbItems, setBreadcrumbItems] = useState([])
+    const [currentSelected] = useOutletContext()
 
     useEffect(() => {
         loadBreadcrumbItems(MAXBLOG, MAXBLOG.MODULE_MAXBLOG)
-    }, [])
+    }, [currentSelected])
 
     const getPath = modules => {
         let names
@@ -31,7 +32,7 @@ function CenterContent() {
         let names = getPath(modules)
         names = [website.NAME, ...names]
         let items = names.map((name, index) => {
-            return <Breadcrumb.Item key={"breadcrumb" + name}>{names[index]}</Breadcrumb.Item>
+            return <Breadcrumb.Item key={"breadcrumb" + name}>{ names[index] }</Breadcrumb.Item>
         })
         setBreadcrumbItems(items)
     }
