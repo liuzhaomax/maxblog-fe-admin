@@ -1,6 +1,7 @@
 import React from "react"
 import "./Nav.css"
-import { Layout, Menu, message } from "antd"
+import { Layout, message } from "antd"
+import Menu from "antd/lib/menu"
 import { UserOutlined } from "@ant-design/icons"
 import setAuthToken from "../utils/setAuthToken"
 import { useNavigate } from "react-router-dom"
