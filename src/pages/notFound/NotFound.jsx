@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import NoFound from "antd/es/result/noFound"
-import {Button} from "antd"
+import { Button } from "antd"
 import { useNavigate } from "react-router-dom"
 
 function NotFound() {
