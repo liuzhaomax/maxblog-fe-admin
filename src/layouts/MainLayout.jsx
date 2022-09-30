@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import {Layout} from "antd"
 import "./MainLayout.css"
+import {Layout} from "antd"
 import Nav from "./Nav"
 import SideMenu from "./SideMenu"
 import { Outlet } from "react-router-dom"
