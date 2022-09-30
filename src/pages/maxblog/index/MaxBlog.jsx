@@ -1,9 +1,9 @@
 import React from "react"
 import {Navigate} from "react-router-dom"
-import { HOME, LOGIN } from "../../config/cstModule"
+import { HOME, LOGIN } from "../../../config/cstModule"
 import { useSelector } from "react-redux"
 
-function Index() {
+function MaxBlog() {
     const auth = useSelector(state => state.auth)
     return (
         <React.Fragment>
@@ -16,4 +16,4 @@ function Index() {
     )
 }
 
-export default Index
+export default MaxBlog

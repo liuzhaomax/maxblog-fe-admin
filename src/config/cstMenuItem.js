@@ -1,4 +1,4 @@
-import { COMPONENT, HOME } from "./cstModule"
+import { ARTICLE, HOME } from "./cstModule"
 import { MenuOutlined } from "@ant-design/icons"
 import React from "react"
 
@@ -10,9 +10,9 @@ export const MENU_ITEMS_WITHOUT_SUB = [
         icon: null,
     },
     {
-        key: COMPONENT.KEY,
+        key: ARTICLE.KEY,
         className: "menu-item",
-        label: COMPONENT.NAME,
+        label: ARTICLE.NAME,
         icon: null,
     },
 ]
@@ -22,6 +22,6 @@ export const MENU_ITEMS_WITH_SUB = [
         label: "",
         key: "submenu",
         icon: <MenuOutlined className="submenu-icon" />,
-        children: MENU_ITEMS_WITHOUT_SUB
+        items: MENU_ITEMS_WITHOUT_SUB
     },
 ]
