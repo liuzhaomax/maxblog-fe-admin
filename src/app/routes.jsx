@@ -22,7 +22,7 @@ export default (
         <Route path={LOGIN.PATH} element={<Login/>}/>
         <Route element={lazyLoad(MAIN_LAYOUT.FILE_PATH)}>
             <Route element={lazyLoad(CENTER_CONTENT.FILE_PATH)}>
-                <Route path={HOME.PATH} element={<Home/>}/>
+                <Route path={HOME.FULL_PATH} element={<Home/>}/>
                 <Route path={ARTICLE.FUNCTIONS[0].FULL_PATH} element={lazyLoad(ARTICLE.FUNCTIONS[0].FILE_PATH)}/>
             </Route>
         </Route>

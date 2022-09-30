@@ -10,8 +10,8 @@ export const HOME = {
     NAME: "首页",
     KEY: "HOME",
     PATH: "home",
-    FULL_PATH: "/home",
-    FILE_PATH: "pages/home/Home",
+    FULL_PATH: "/maxblog/home",
+    FILE_PATH: "pages/maxblog/home/Home",
 }
 
 export const ARTICLE = {
