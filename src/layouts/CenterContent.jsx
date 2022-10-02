@@ -19,8 +19,10 @@ function CenterContent() {
         for (let k in modules) {
             if (modules[k].FUNCTIONS) {
                 names = getPath(modules[k].FUNCTIONS)
-                names = [modules[k].NAME, ...names]
-                return names
+                if (names) {
+                    names = [modules[k].NAME, ...names]
+                    return names
+                }
             }
             if (location.pathname === modules[k].FULL_PATH) {
                 return [modules[k].NAME]
