@@ -4,7 +4,7 @@ import { Layout } from "antd"
 import Menu from "antd/lib/menu"
 import { AreaChartOutlined, FileTextOutlined, HomeOutlined } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom"
-import { ARTICLE, HOME, MAXBLOG } from "../config/cstModule"
+import { ARTICLE, HOME, MAXBLOG, STATS } from "../config/cstModule"
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -15,11 +15,17 @@ function SideMenu(props) {
     const jump = e => {
         props.setCurrent(e.key)
         switch (e.key) {
+        case STATS.KEY:
+            navigate(STATS.FULL_PATH)
+            break
         case HOME.KEY:
             navigate(HOME.FULL_PATH)
             break
         case ARTICLE.FUNCTIONS.ARTICLE_LIST.KEY:
             navigate(ARTICLE.FUNCTIONS.ARTICLE_LIST.FULL_PATH)
+            break
+        case ARTICLE.FUNCTIONS.ARTICLE_TAGS.KEY:
+            navigate(ARTICLE.FUNCTIONS.ARTICLE_TAGS.FULL_PATH)
             break
         default:
             console.log("无效 Menu.Item key.")
@@ -61,9 +67,11 @@ function SideMenu(props) {
                 defaultOpenKeys={getOpenKey(MAXBLOG.MODULE_MAXBLOG)}
                 style={{ height: "100%", borderRight: 0 }}
             >
+                <Menu.Item key={ STATS.KEY } icon={<AreaChartOutlined />} onClick={ jump }>{ STATS.NAME }</Menu.Item>
                 <Menu.Item key={ HOME.KEY } icon={<HomeOutlined />} onClick={ jump }>{ HOME.NAME }</Menu.Item>
                 <SubMenu key={ ARTICLE.KEY } icon={<FileTextOutlined />} title={ ARTICLE.NAME }>
                     <Menu.Item key={ ARTICLE.FUNCTIONS.ARTICLE_LIST.KEY } onClick={ jump }>{ARTICLE.FUNCTIONS.ARTICLE_LIST.NAME}</Menu.Item>
+                    <Menu.Item key={ ARTICLE.FUNCTIONS.ARTICLE_TAGS.KEY } onClick={ jump }>{ARTICLE.FUNCTIONS.ARTICLE_TAGS.NAME}</Menu.Item>
                 </SubMenu>
                 <SubMenu key="sub2" icon={<AreaChartOutlined />} title="假模块">
                     <Menu.Item key="3">假功能1</Menu.Item>

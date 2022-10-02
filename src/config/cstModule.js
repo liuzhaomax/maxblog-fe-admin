@@ -6,6 +6,14 @@ export const LOGIN = {
     FILE_PATH: "pages/login/Login",
 }
 
+export const STATS = {
+    NAME: "统计",
+    KEY: "STATS",
+    PATH: "stats",
+    FULL_PATH: "/maxblog/stats",
+    FILE_PATH: "pages/maxblog/stats/Stats",
+}
+
 export const HOME = {
     NAME: "首页",
     KEY: "HOME",
@@ -25,12 +33,20 @@ export const ARTICLE = {
             KEY: "ARTICLE_LIST",
             PATH: "articleList",
             FULL_PATH: "/maxblog/article/articleList",
-            FILE_PATH: "pages/maxblog/article/Article",
+            FILE_PATH: "pages/maxblog/article/ArticleList",
+        },
+        ARTICLE_TAGS: {
+            NAME: "标签",
+            KEY: "ARTICLE_TAGS",
+            PATH: "articleTags",
+            FULL_PATH: "/maxblog/article/articleTags",
+            FILE_PATH: "pages/maxblog/article/ArticleTags",
         },
     },
 }
 
 export const MODULE_MAXBLOG = {
+    STATS,
     HOME,
     ARTICLE,
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import {Navigate} from "react-router-dom"
-import { HOME, LOGIN } from "../../config/cstModule"
+import { LOGIN, STATS } from "../../config/cstModule"
 import { useSelector } from "react-redux"
 
 function Index() {
@@ -9,7 +9,7 @@ function Index() {
         <React.Fragment>
             {
                 auth.isAuthenticated ?
-                    <Navigate to={HOME.FULL_PATH} replace/> :
+                    <Navigate to={STATS.FULL_PATH} replace/> :
                     <Navigate to={LOGIN.FULL_PATH} replace/>
             }
         </React.Fragment>

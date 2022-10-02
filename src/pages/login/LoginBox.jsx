@@ -5,7 +5,7 @@ import { EyeInvisibleOutlined, EyeTwoTone, FrownOutlined } from "@ant-design/ico
 import JsEncrypt from "jsencrypt"
 import setAuthToken from "../../utils/setAuthToken"
 import { useNavigate } from "react-router-dom"
-import { HOME } from "../../config/cstModule"
+import { STATS } from "../../config/cstModule"
 import { postLogin } from "./handlers"
 import { useDispatch } from "react-redux"
 import { setToken, toggleAuth } from "../../state/reducers/auth"
@@ -36,7 +36,7 @@ function LoginBox() {
                 setAuthToken(res.data.data)
                 localStorage.setItem("TOKEN", res.data.data)
                 message.success("登录成功")
-                navigate(HOME.FULL_PATH)
+                navigate(STATS.FULL_PATH)
             })
             .catch(() => {
                 setIsLoading(false)

@@ -1,6 +1,6 @@
 import React from "react"
 import {Navigate} from "react-router-dom"
-import { HOME, LOGIN } from "../../../config/cstModule"
+import { STATS, LOGIN } from "../../../config/cstModule"
 import { useSelector } from "react-redux"
 
 function MaxBlog() {
@@ -9,7 +9,7 @@ function MaxBlog() {
         <React.Fragment>
             {
                 auth.isAuthenticated ?
-                    <Navigate to={HOME.FULL_PATH} replace/> :
+                    <Navigate to={STATS.FULL_PATH} replace/> :
                     <Navigate to={LOGIN.FULL_PATH} replace/>
             }
         </React.Fragment>
