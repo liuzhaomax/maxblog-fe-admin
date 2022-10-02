@@ -2,7 +2,7 @@ import React, {Suspense} from "react"
 import { Routes, Route } from "react-router-dom"
 import Index from "../pages/index/Index"
 import NotFound from "../pages/notFound/NotFound"
-import { HOME, ARTICLE, LOGIN, MAXBLOG, STATS } from "../config/cstModule"
+import { HOME, ARTICLE, LOGIN, MAXBLOG, STATS, DEMO, PROJECT } from "../config/cstModule"
 import { CENTER_CONTENT, MAIN_LAYOUT } from "../config/cstLayout"
 import Login from "../pages/login/Login"
 import MaxBlog from "../pages/maxblog/index/MaxBlog"
@@ -28,6 +28,8 @@ export default (
                 <Route path={HOME.FULL_PATH} element={lazyLoad(HOME.FILE_PATH)}/>
                 <Route path={ARTICLE.FUNCTIONS.ARTICLE_LIST.FULL_PATH} element={lazyLoad(ARTICLE.FUNCTIONS.ARTICLE_LIST.FILE_PATH)}/>
                 <Route path={ARTICLE.FUNCTIONS.ARTICLE_TAGS.FULL_PATH} element={lazyLoad(ARTICLE.FUNCTIONS.ARTICLE_TAGS.FILE_PATH)}/>
+                <Route path={DEMO.FUNCTIONS.DEMO_LIST.FULL_PATH} element={lazyLoad(DEMO.FUNCTIONS.DEMO_LIST.FILE_PATH)}/>
+                <Route path={PROJECT.FUNCTIONS.PROJECT_LIST.FULL_PATH} element={lazyLoad(PROJECT.FUNCTIONS.PROJECT_LIST.FILE_PATH)}/>
             </Route>
         </Route>
         <Route path="*" element={<NotFound/>}/>

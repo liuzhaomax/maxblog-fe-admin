@@ -2,9 +2,9 @@ import React from "react"
 import "./SideMenu.css"
 import { Layout } from "antd"
 import Menu from "antd/lib/menu"
-import { AreaChartOutlined, FileTextOutlined, HomeOutlined } from "@ant-design/icons"
+import { AreaChartOutlined, ExperimentOutlined, HomeOutlined, ProjectOutlined, ReadOutlined } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom"
-import { ARTICLE, HOME, MAXBLOG, STATS } from "../config/cstModule"
+import { ARTICLE, DEMO, HOME, MAXBLOG, PROJECT, STATS } from "../config/cstModule"
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -27,6 +27,12 @@ function SideMenu(props) {
         case ARTICLE.FUNCTIONS.ARTICLE_TAGS.KEY:
             navigate(ARTICLE.FUNCTIONS.ARTICLE_TAGS.FULL_PATH)
             break
+        case DEMO.FUNCTIONS.DEMO_LIST.KEY:
+            navigate(DEMO.FUNCTIONS.DEMO_LIST.FULL_PATH)
+            break
+        case PROJECT.FUNCTIONS.PROJECT_LIST.KEY:
+            navigate(PROJECT.FUNCTIONS.PROJECT_LIST.FULL_PATH)
+            break
         default:
             console.log("无效 Menu.Item key.")
         }
@@ -37,7 +43,10 @@ function SideMenu(props) {
         for (let k in modules) {
             if (modules[k].FUNCTIONS) {
                 keys = getSelectedKey(modules[k].FUNCTIONS)
-                return keys
+                if (keys) {
+                    keys = [modules[k].KEY, ...keys]
+                    return keys
+                }
             }
             if (location.pathname === modules[k].FULL_PATH) {
                 return [modules[k].KEY]
@@ -50,8 +59,10 @@ function SideMenu(props) {
         for (let k in modules) {
             if (modules[k].FUNCTIONS) {
                 keys = getOpenKey(modules[k].FUNCTIONS)
-                keys = [modules[k].KEY, ...keys]
-                return keys
+                if (keys) {
+                    keys = [modules[k].KEY, ...keys]
+                    return keys
+                }
             }
             if (location.pathname === modules[k].FULL_PATH) {
                 return []
@@ -69,13 +80,15 @@ function SideMenu(props) {
             >
                 <Menu.Item key={ STATS.KEY } icon={<AreaChartOutlined />} onClick={ jump }>{ STATS.NAME }</Menu.Item>
                 <Menu.Item key={ HOME.KEY } icon={<HomeOutlined />} onClick={ jump }>{ HOME.NAME }</Menu.Item>
-                <SubMenu key={ ARTICLE.KEY } icon={<FileTextOutlined />} title={ ARTICLE.NAME }>
+                <SubMenu key={ ARTICLE.KEY } icon={<ReadOutlined />} title={ ARTICLE.NAME }>
                     <Menu.Item key={ ARTICLE.FUNCTIONS.ARTICLE_LIST.KEY } onClick={ jump }>{ARTICLE.FUNCTIONS.ARTICLE_LIST.NAME}</Menu.Item>
                     <Menu.Item key={ ARTICLE.FUNCTIONS.ARTICLE_TAGS.KEY } onClick={ jump }>{ARTICLE.FUNCTIONS.ARTICLE_TAGS.NAME}</Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub2" icon={<AreaChartOutlined />} title="假模块">
-                    <Menu.Item key="3">假功能1</Menu.Item>
-                    <Menu.Item key="4">假功能2</Menu.Item>
+                <SubMenu key={ DEMO.KEY } icon={<ExperimentOutlined />} title={ DEMO.NAME }>
+                    <Menu.Item key={ DEMO.FUNCTIONS.DEMO_LIST.KEY } onClick={ jump }>{DEMO.FUNCTIONS.DEMO_LIST.NAME}</Menu.Item>
+                </SubMenu>
+                <SubMenu key={ PROJECT.KEY } icon={<ProjectOutlined />} title={ PROJECT.NAME }>
+                    <Menu.Item key={ PROJECT.FUNCTIONS.PROJECT_LIST.KEY } onClick={ jump }>{PROJECT.FUNCTIONS.PROJECT_LIST.NAME}</Menu.Item>
                 </SubMenu>
             </Menu>
         </Sider>
